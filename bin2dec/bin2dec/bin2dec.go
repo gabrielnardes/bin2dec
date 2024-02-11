@@ -2,6 +2,7 @@ package bin2dec
 
 import (
     "errors"
+    "math"
 )
 
 func ValidateUserInput(input int) (string, error) {
@@ -12,6 +13,10 @@ func ValidateUserInput(input int) (string, error) {
     }
 
     return "", nil
+}
+
+func Calculate(i float64) float64 {
+    return math.Log2(i)
 }
 
 func lenLoop(i int) int {

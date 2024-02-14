@@ -5,7 +5,7 @@ import (
 )
 
 func TestGiveErrorIfInputIsLessThan8Digits(t *testing.T) {
-    userInput := 10
+    userInput := "10"
     _, err := ValidateUserInput(userInput)
     if err == nil {
         t.Fatal("Should warn the user if input is less than 8 digits")
@@ -13,7 +13,7 @@ func TestGiveErrorIfInputIsLessThan8Digits(t *testing.T) {
 }
 
 func TestGiveErrorIfInputIsGreaterThan8Digits(t *testing.T) {
-    userInput := 101010101
+    userInput := "101010101"
     _, err := ValidateUserInput(userInput)
     if err == nil {
         t.Fatal("Should warn the user if input is greater than 8 digits")
@@ -36,6 +36,23 @@ func IfTheResultIsInASingleOuput(t *testing.T) {
 
 }
 
-func MustAllowOnlyNumbers(t *testing.T) {
+func TestMustAllowOnlyNumbers(t *testing.T) {
+    userInput := []string{
+        "abcdefgh",
+        "123defgh",
+        "abc45678",
+        "abc456gh",
+    }
+    for _, tt := range userInput {
+        t.Run(tt, func(t *testing.T) {
+            _, err := ValidateUserInput(tt)
+            if err == nil {
+                t.Fatal("Should warn the user if input not exclusively numeric.")
+            }
+        })
+    }
+}
+
+func MustCountEmojisAsOneCharacter(t *testing.T) {
 
 }

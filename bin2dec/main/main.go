@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-    var input int
+    var input string
     fmt.Println("Enter a binary number of 8 digits to convert it to decimal")
     fmt.Scan(&input)
     _, err := bin2dec.ValidateUserInput(input)
@@ -14,5 +14,5 @@ func main() {
         fmt.Println(err)
         return
     }
-    fmt.Printf("Your input: %d\n", input)
+    fmt.Printf("Your input: %s\n", input)
 }

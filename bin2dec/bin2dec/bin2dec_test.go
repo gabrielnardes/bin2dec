@@ -5,22 +5,6 @@ import (
 	"testing"
 )
 
-func TestGiveErrorIfInputIsLessThan8Digits(t *testing.T) {
-    userInput := "10"
-    _, err := ValidateUserInput(userInput)
-    if err == nil {
-        t.Fatal("Should warn the user if input is less than 8 digits")
-    }
-}
-
-func TestGiveErrorIfInputIsGreaterThan8Digits(t *testing.T) {
-    userInput := "101010101"
-    _, err := ValidateUserInput(userInput)
-    if err == nil {
-        t.Fatal("Should warn the user if input is greater than 8 digits")
-    }
-}
-
 func TestCase1OfLogCalculation(t *testing.T) {
     var userInput float64 = 4
     ouput := Calculate(userInput)

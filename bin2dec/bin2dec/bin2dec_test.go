@@ -1,6 +1,7 @@
 package bin2dec
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -28,29 +29,24 @@ func TestCase1OfLogCalculation(t *testing.T) {
     }
 }
 
-func UserNotificationWhenInputIsDifferentOf0Or1(t *testing.T) {
-
-}
-
-func IfTheResultIsInASingleOuput(t *testing.T) {
-
-}
-
-func TestMustAllowOnlyNumbers(t *testing.T) {
+func TestNotifyWhenInputIsDifferentOf0Or1(t *testing.T) {
     userInput := []string{
-        "abcdefgh",
-        "123defgh",
-        "abc45678",
-        "abc456gh",
+        "10101019",
+        "90101010",
+        "10109010",
     }
     for _, tt := range userInput {
         t.Run(tt, func(t *testing.T) {
             _, err := ValidateUserInput(tt)
             if err == nil {
-                t.Fatal("Should warn the user if input not exclusively numeric.")
+                t.Fatal(fmt.Sprintf("Should warn the user if input not exclusively 1 or 0. Input: '%s'", tt))
             }
         })
     }
+}
+
+func IfTheResultIsInASingleOuput(t *testing.T) {
+
 }
 
 func MustCountEmojisAsOneCharacter(t *testing.T) {

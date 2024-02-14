@@ -1,9 +1,9 @@
 package bin2dec
 
 import (
-    "errors"
-    "math"
-    "strconv"
+	"errors"
+	"math"
+	"regexp"
 )
 
 func ValidateUserInput(input string) (string, error) {
@@ -12,9 +12,9 @@ func ValidateUserInput(input string) (string, error) {
     if numberOfDigits != 8 {
         return "", errors.New("Input must a binary number of 8 digits")
     }
-    _, err := strconv.Atoi(input)
-    if err != nil {
-        return "", errors.New("looks like not a number")
+
+    if match, _ := regexp.MatchString("^[01]+$", input); !match {
+        return "", errors.New("Input must be only 1 or 0")
     }
 
     return "", nil

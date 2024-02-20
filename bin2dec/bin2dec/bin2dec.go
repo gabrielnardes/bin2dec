@@ -4,6 +4,7 @@ import (
 	"errors"
 	"math"
 	"regexp"
+	"strconv"
 )
 
 func ValidateUserInput(input string) (string, error) {
@@ -14,7 +15,14 @@ func ValidateUserInput(input string) (string, error) {
     return "", nil
 }
 
-func Calculate(i float64) float64 {
-    return math.Log2(i)
+func Calculate(input string) int {
+    pow := len(input) - 1
+    result := 0
+    for _, digit := range input {
+        integer, _ := strconv.Atoi(string(digit))
+        result += integer * int(math.Pow(2, float64(pow)))
+        pow--
+    }
+    return result
 }
 

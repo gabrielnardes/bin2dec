@@ -14,5 +14,6 @@ func main() {
         fmt.Println(err)
         return
     }
-    fmt.Printf("Your input: %s\n", input)
+    output := bin2dec.Calculate(input)
+    fmt.Printf("Binary %s equal %d in decimal\n", input, output)
 }

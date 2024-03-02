@@ -1,9 +1,10 @@
 package main
 
 import (
-	"bin2dec"
 	"fmt"
 	"os"
+
+	"bin2dec/pkg/bin2dec"
 )
 
 func main() {

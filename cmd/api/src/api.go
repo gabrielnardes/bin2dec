@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"bin2dec"
+	"bin2dec/pkg/bin2dec"
 )
 
 func main() {

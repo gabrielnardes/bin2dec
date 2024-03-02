@@ -1,0 +1,10 @@
+FROM docker.io/golang:1.22.0
+
+RUN go install github.com/bokwoon95/wgo@v0.5.6
+
+ENV APP_HOME /go/src/bin2dec
+RUN mkdir -p "$APP_HOME"
+
+WORKDIR "$APP_HOME"
+EXPOSE 8080
+CMD ["wgo", "run", "cmd/api/src/api.go"]
